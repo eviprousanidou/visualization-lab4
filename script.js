@@ -20,7 +20,7 @@ d3.csv("wealth-health-2014.csv", d3.autoType).then((data) => {
         
     //Scales
     const xScale = d3
-        .scaleLog()
+        .scaleLinear()
         .domain(d3.extent(Data.map(function(item){
             return(item.Income);
         })))
@@ -41,7 +41,7 @@ d3.csv("wealth-health-2014.csv", d3.autoType).then((data) => {
         .enter()
         .append('circle')
         .attr("fill", d => colorScale(d.Region))
-        .attr("fill-opacity","80%")
+        .attr("fill-opacity","0.8")
         .attr('stroke','black')
         .attr('cx', d=>xScale(d.Income))
         .attr('cy', d=>yScale(d.LifeExpectancy))
